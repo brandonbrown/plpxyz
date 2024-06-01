@@ -15,9 +15,9 @@ What to expect:
 ---
 
 
-### This site is being built with Astro, in public
+### This site is being [built with Astro](https://astro.build/), in public
 
-Astro sounds like a wonderful solution for content focused sites - maybe even some applications. With my wanting to share content, a framework that gets me to "Written and shipped" fast is the most helpful piece for me. In the past, I would have reached for Gatsby, Next, Jekyll in ye olden days- all of which come with their own pros + cons lists. Astro, at least from my needs and perspective, seems to have combined enough of the pros and dropped enough of the cons that I am very excited about jumping into it.
+[Astro](https://astro.build/) sounds like a wonderful solution for content focused sites - maybe even some applications. With my wanting to share content, a framework that gets me to "Written and shipped" fast is the most helpful piece for me. In the past, I would have reached for Gatsby, Next, Jekyll in ye olden days- all of which come with their own pros + cons lists. Astro, at least from my needs and perspective, seems to have combined enough of the pros and dropped enough of the cons that I am very excited about jumping into it.
 
 The things that have my attention:
 
