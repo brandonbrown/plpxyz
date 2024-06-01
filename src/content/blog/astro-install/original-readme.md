@@ -2,6 +2,7 @@
 title: 'Original Readme: Building With Astro'
 description: 'The original README file contents from Astro@4'
 pubDate: 'Jun 01 2024'
+onIndex: false
 # heroImage: '/blog-placeholder-3.jpg'
 ---
 

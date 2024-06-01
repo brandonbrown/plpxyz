@@ -21,3 +21,38 @@ From the blog template, the configuration allowed for me to understand I can:
 5. It works!
 
 Let's deploy as is. I already have a [Netlify](https://www.netlify.com/) account, so that's where I'm going to send this thing. For the sake of building in public, this first deploy will only have this article and a few updates of personal information attached to it. Feedback on the deploy process and any gotchas from the out-of-the-box state to follow.
+
+*After First Deploy*
+
+Well, that was pretty seamless. Point Netlify to the correct branch of the project on GitHub, and you're essentially done. 
+
+Things I noticed afterwards on Astro:
+
+- /blog defaults to earliest post
+- /nested/directories/ in blogs show on the main blog listing page
+
+These are not too surprising, but good to be aware of.
+
+For the first, in `pages/blog/index.astro`, it's a simple swap of the sort function they've already provided:
+
+```
+const posts = (await getCollection('blog')).sort(
+	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+```
+
+Originally, this was `a - b`, a swap to `b - a` changes the rendering order.
+
+For the second part, this is most likely related to Astro's `collections`, so I'll start [looking for this in the docs](https://docs.astro.build/en/guides/content-collections/#organizing-with-subdirectories).
+
+After reading this, I thought my original excitement for organizing posts with subdirectories may have been misplaced. However, digging into this a bit more led me down a path of updating the blog frontmatter with an optional prop I've called `onIndex` set as a boolean. Back to the sort function, I've added a filter for this prop:
+
+```
+const posts = (await getCollection('blog', ({ data }) => {
+  return data.onIndex !== false;
+})).sort(
+	(a, b) =>  b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+```
+
+As long as `onIndex` is not explicitly set to `false`, then the correct level of blog posts are rendered. I'd like a solution that does not involve a manual task such as this, but problem solved for the time being.
